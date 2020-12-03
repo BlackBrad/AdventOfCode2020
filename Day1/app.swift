@@ -18,27 +18,59 @@ func get_input() -> [Int]{
     return [0]
 }
 
-let numberArray = get_input()
+func partOne(numberArray: [Int]){
+    // Iterate through the file to find the matching integers
+    var valueA = 0
+    var valueB = 0
+    var foundValue = false
 
-// Iterate through the file to find the matching integers
-var valueA = 0
-var valueB = 0
-var foundValue = false
+    //print("Array is \(numberArray)")
 
-//print("Array is \(numberArray)")
-
-for i in numberArray{
-    for j in numberArray{
-        if (i + j) == 2020{
-            valueA = i
-            valueB = j
-            foundValue = true
+    for i in numberArray{
+        for j in numberArray{
+            if (i + j) == 2020{
+                valueA = i
+                valueB = j
+                foundValue = true
+                break
+            }
+        }
+        if foundValue{
             break
         }
     }
-    if foundValue{
-        break
-    }
+
+    print("PartOne: Values multiplied are: \(valueA * valueB)")
 }
 
-print("Values multiplied are: \(valueA * valueB)")
+func partTwo(numberArray: [Int]){
+    var valueA = 0
+    var valueB = 0
+    var valueC = 0
+    var foundValue = false
+
+    for i in numberArray{
+        for j in numberArray{
+            for k in numberArray{
+                if (i + j + k) == 2020{
+                    valueA = i
+                    valueB = j
+                    valueC = k
+                    foundValue = true
+                    break
+                }
+            }
+            if foundValue{
+                break
+            }
+        }
+        if foundValue{
+            break
+        }
+    }
+    print("PartTwo: Values multiplied are: \(valueA * valueB * valueC)")
+}
+
+let numberArray = get_input()
+partOne(numberArray: numberArray)
+partTwo(numberArray: numberArray)
