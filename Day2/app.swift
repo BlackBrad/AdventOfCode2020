@@ -3,7 +3,15 @@
 import Foundation
 
 struct Entry{
+    // For Part 1 this is the lower bounds for the range of how many
+    // instances of character are in password
+    // For Part 2 this is the lower index of password for the possible
+    // occurance of character there.
     var lowerBound = 0
+    // For Part 1 this is the upper bounds for the range of how many
+    // instances of character are in password
+    // For Part 2 this is the higher index of password for the possible
+    // occurance of character there.
     var upperBound = 0
     var character = ""
     var password = ""
@@ -53,6 +61,7 @@ func generate_entry_struct_array(database: [String]) -> [Entry]{
     return entryList
 }
 
+// For part 1
 func count_valid_passwords(entryList: [Entry]){
     var count = 0
 
@@ -65,6 +74,11 @@ func count_valid_passwords(entryList: [Entry]){
     print("Valid password count is: \(count)")
 }
 
-var databaseList = get_input()
-var entryList = generate_entry_struct_array(database: databaseList)
+// For part 2
+func count_valid_passwords_part_two(entryList: [Entry]){
+    var count = 0
+}
+
+let databaseList = get_input()
+let entryList = generate_entry_struct_array(database: databaseList)
 count_valid_passwords(entryList: entryList)
