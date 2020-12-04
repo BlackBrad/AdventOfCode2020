@@ -62,7 +62,7 @@ func generate_entry_struct_array(database: [String]) -> [Entry]{
 }
 
 // For part 1
-func count_valid_passwords(entryList: [Entry]){
+func count_valid_passwords_part_one(entryList: [Entry]){
     var count = 0
 
     for entry in entryList{
@@ -81,4 +81,5 @@ func count_valid_passwords_part_two(entryList: [Entry]){
 
 let databaseList = get_input()
 let entryList = generate_entry_struct_array(database: databaseList)
-count_valid_passwords(entryList: entryList)
+count_valid_passwords_part_one(entryList: entryList)
+count_valid_passwords_part_two(entryList: entryList)
