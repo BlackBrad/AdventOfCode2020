@@ -71,12 +71,28 @@ func count_valid_passwords_part_one(entryList: [Entry]){
             count += 1
         }
     }
-    print("Valid password count is: \(count)")
+    print("Part 1: Valid password count is: \(count)")
 }
 
 // For part 2
 func count_valid_passwords_part_two(entryList: [Entry]){
     var count = 0
+
+    for entry in entryList{
+        let charAIndex = entry.password.index(entry.password.startIndex,
+                                              offsetBy: entry.lowerBound - 1)
+        let charBIndex = entry.password.index(entry.password.startIndex,
+                                              offsetBy: entry.upperBound - 1)
+        let charA = String(entry.password[charAIndex])
+        let charB = String(entry.password[charBIndex])
+
+        if charA == entry.character || charB == entry.character{
+            if charA != charB{
+                count += 1
+            }
+        }
+    }
+    print("Part 2: Valid password count is: \(count)")
 }
 
 let databaseList = get_input()
